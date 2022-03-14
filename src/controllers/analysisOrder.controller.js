@@ -59,7 +59,6 @@ const updateAnalysisOrder = async (req, res) => {
 
 module.exports = {
     getAnalysisOrder,
-    getAnalysisOrderWithId,
     getAnalysisOrderByNameP,
     getAnalysisOrderByNameL,
     createAnalysisOrder,
