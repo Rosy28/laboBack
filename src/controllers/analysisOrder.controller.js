@@ -33,7 +33,7 @@ const createAnalysisOrder = async (req, res) => {
 }
 
 const deleteAnalysisOrder = async (req, res) => {
-    const response = await pool.query('SELECT dPedido($1)', [req.params.id]);
+    const response = await pool.query('SELECT dPedido($1)', [req.body.id]);
     console.log(response);
     res.json({
         message: 'Analysis order deleted succesffully',
