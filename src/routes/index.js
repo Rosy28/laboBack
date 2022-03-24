@@ -67,6 +67,6 @@ router.get('/analysisOrderP/:id', getAnalysisOrderByNameP);
 router.get('/analysisOrderL/:id', getAnalysisOrderByNameL);
 router.post('/analysisOrder', createAnalysisOrder);
 router.delete('/analysisOrder/:id', deleteAnalysisOrder);
-router.put('/analysisOrder/:id', updateAnalysisOrder);
+router.put('/analysisOrder', updateAnalysisOrder);
 
 module.exports = router;
