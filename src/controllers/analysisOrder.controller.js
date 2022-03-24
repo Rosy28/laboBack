@@ -45,7 +45,7 @@ const updateAnalysisOrder = async (req, res) => {
     const id = req.params.id;
     const { idStatus } = req.body;
 
-    const response = await pool.query('SELECT uPedido($1)', [idStatus, id]);
+    const response = await pool.query('SELECT uPedido($1, $2)', [idStatus, id]);
     console.log(response);
     res.json({
         message: 'Analysis order updated succesfully',
