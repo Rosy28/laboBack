@@ -29,12 +29,13 @@ const { getAnalysis,
     updateAnalysis } = require('../controllers/analysis.controller');
 
 const { getAnalysisOrder,
-    getAnalysisOrderWithId,
     getAnalysisOrderByNameP,
     getAnalysisOrderByNameL,
     createAnalysisOrder,
     deleteAnalysisOrder,
     updateAnalysisOrder } = require('../controllers/analysisOrder.controller');
+
+const { createPdf } = require('../services/pdf.js');
 
 router.get('/pacients', getPacient);
 router.get('/pacients/:id', getPacientById);
@@ -65,6 +66,7 @@ router.put('/analysis/:id', updateAnalysis);
 router.get('/analysisOrder', getAnalysisOrder);
 router.get('/analysisOrderP/:id', getAnalysisOrderByNameP);
 router.get('/analysisOrderL/:id', getAnalysisOrderByNameL);
+router.get('/analysisOrderPR', createPdf);
 router.post('/analysisOrder', createAnalysisOrder);
 router.delete('/analysisOrder/:id', deleteAnalysisOrder);
 router.put('/analysisOrder', updateAnalysisOrder);

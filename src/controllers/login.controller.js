@@ -7,7 +7,7 @@ const pool = require('../database/keys.js'),
 
 const authentication = async (req, res) => {
     const { email, pwd, rol } = req.body;
-    let response, query;
+    let response;
     let id, name, lastnames, finalPwd, validation;
 
     switch (rol) {
