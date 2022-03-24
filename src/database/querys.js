@@ -18,7 +18,7 @@ let queryL = "select analisis_pedidos.idpedido as idpedido, paciente.nombre || '
     queryL += " left join laboratorista on analisis_pedidos.idlaboratorista = laboratorista.idlaboratorista";
     queryL += " left join tipo_analisis on analisis_pedidos.idanalisis = tipo_analisis.idanalisis";
     queryL += " left join estado on analisis_pedidos.idestado = estado.idestado";
-    queryL += " where analisis_pedidos.idLaboratorista = $1;";
+    queryL += " where analisis_pedidos.idLaboratorista = $1 and analisis_pedidos.idestado !=3;";
 
 module.exports = {
     queryP,
