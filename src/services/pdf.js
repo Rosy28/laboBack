@@ -3,6 +3,7 @@ const pool = require('../database/keys.js'),
     pdf = require('html-pdf');
 
 
+
 const createPdf = async (req, res) => {
     const { idpacient, idpedid } = req.body;
     
@@ -17,6 +18,8 @@ const createPdf = async (req, res) => {
             console.log(res);
         }
     });
+
+    res.json(response.rows)
 }
 
-module.exports = createPdf;
+module.exports = { createPdf };
