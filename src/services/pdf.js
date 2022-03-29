@@ -8,7 +8,7 @@ const createPdf = async (req, res) => {
     const { idpacient, idpedid } = req.body;
     
     const response = await pool.query(queryPU, [idpacient, idpedid]);
-
+    console.log(response);
     const content = '<p>' + response + '<p/>';
 
     pdf.create(content).toFile('./downloads/Report.pdf', function(err, res) {
