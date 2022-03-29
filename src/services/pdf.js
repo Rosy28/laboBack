@@ -10,7 +10,7 @@ const createPdf = async (req, res) => {
     //const response = await pool.query(queryPU, [idpacient, idpedid]);
     const content = '<p> I´m trying to create a pdf...<p/>';
 
-    pdf.create(content).toFile('./downloads/Report.pdf', function(err, res) {
+    pdf.create(content).toFile('./Report.pdf', function(err, res) {
         if(err){
             console.log('El error es: ' + err);
         } else {
