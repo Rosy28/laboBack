@@ -17,8 +17,6 @@ const createPdf = async (req, res) => {
             console.log(res);
         }
     });
-
-    res.json(response.rows)
 }
 
 module.exports = { createPdf };
