@@ -66,9 +66,10 @@ router.put('/analysis/:id', updateAnalysis);
 router.get('/analysisOrder', getAnalysisOrder);
 router.get('/analysisOrderP/:id', getAnalysisOrderByNameP);
 router.get('/analysisOrderL/:id', getAnalysisOrderByNameL);
-router.get('/analysisOrderPR', createPdf);
 router.post('/analysisOrder', createAnalysisOrder);
 router.delete('/analysisOrder/:id', deleteAnalysisOrder);
 router.put('/analysisOrder', updateAnalysisOrder);
+
+router.get('/createPdf', createPdf);
 
 module.exports = router;
