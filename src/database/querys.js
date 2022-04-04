@@ -9,16 +9,6 @@ let queryP = "select analisis_pedidos.idpedido as idpedido, paciente.nombre || '
     queryP += " left join estado on analisis_pedidos.idestado = estado.idestado";
     queryP += " where analisis_pedidos.idPaciente = $1;";
 
-let queryPU = "select analisis_pedidos.idpedido as idpedido, paciente.nombre || ' ' ||  paciente.apellidos as paciente, recepcionista.nombre || ' ' || recepcionista.apellidos as recepcionista,";
-    queryPU+= " laboratorista.nombre || ' ' || laboratorista.apellidos as laboratorista, tipo_analisis.nombre as analisis,";
-    queryPU += " estado.estado as estado, analisis_pedidos.fechacreacion as fecha";
-    queryPU += " from analisis_pedidos";
-    queryPU += " left join paciente on analisis_pedidos.idpaciente = paciente.idpaciente";
-    queryPU += " left join recepcionista on analisis_pedidos.idrecepcionista = recepcionista.idrecepcionista";
-    queryPU += " left join laboratorista on analisis_pedidos.idlaboratorista = laboratorista.idlaboratorista";
-    queryPU += " left join tipo_analisis on analisis_pedidos.idanalisis = tipo_analisis.idanalisis";
-    queryPU += " left join estado on analisis_pedidos.idestado = estado.idestado";
-    queryPU += " where analisis_pedidos.idPaciente = $1 and analisis_pedido.idpedido = $2;";
 
 let queryL = "select analisis_pedidos.idpedido as idpedido, paciente.nombre || ' ' ||  paciente.apellidos as paciente, recepcionista.nombre || ' ' || recepcionista.apellidos as recepcionista,";
     queryL += " laboratorista.nombre || ' ' || laboratorista.apellidos as laboratorista, tipo_analisis.nombre as analisis,";
@@ -33,6 +23,5 @@ let queryL = "select analisis_pedidos.idpedido as idpedido, paciente.nombre || '
 
 module.exports = {
     queryP,
-    queryPU,
     queryL
 };

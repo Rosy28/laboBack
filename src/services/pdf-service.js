@@ -1,6 +1,8 @@
-const PDFDocument = require('pdfkit');
+const PDFDocument = require('pdfkit'),
+        pool = require('../database/keys.js'),
+      { queryP } = require('../database/querys.js');
 
-function buildPdf(dataCallback, endCallback){
+const buildPdf = async (dataCallback, endCallback) => { 
     const doc = new PDFDocument();
     doc.on('data', dataCallback);
     doc.on('end', endCallback);
