@@ -13,11 +13,11 @@ const buildPdf = async (req, res) => {
     doc.on('data', (chunk) => stream.write(chunk));
     doc.on('end', () => stream.end());
 
-    const { idpacient, idpedid } = req.body;
+    //const { idpacient, idpedid } = req.body;
 
-    const response = await pool.query(queryPU, [idpacient, idpedid]);
+    //const response = await pool.query(queryPU, [idpacient, idpedid]);
 
-    doc.fontSize(25).text(JSON.stringify(response));
+    doc.fontSize(25).text('some heading');
     doc.end();
 }
 
