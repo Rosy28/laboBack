@@ -2,11 +2,14 @@ const PDFDocument = require('pdfkit'),
         pool = require('../database/keys.js'),
       { queryP } = require('../database/querys.js');
 
-const buildPdf = async (dataCallback, endCallback) => { 
+const buildPdf = async (req, res) => { 
     const doc = new PDFDocument();
-    doc.on('data', dataCallback);
-    doc.on('end', endCallback);
-    doc.fontSize(25).text('Some heading');
+    doc.on('data', req);
+    doc.on('end', res);
+
+    const response = await pool.query(queryP, [req.params.id]);
+
+    doc.fontSize(25).text(response);
     doc.end();
 }
 
