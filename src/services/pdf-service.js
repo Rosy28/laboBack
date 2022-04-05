@@ -25,7 +25,7 @@ const releasePdf = async (req, res, next) => {
     );
 }
 
-module.exports = { releasePdf };
+module.exports = { buildPdf, releasePdf };
 
 
 
