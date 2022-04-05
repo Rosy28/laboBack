@@ -35,8 +35,7 @@ const { getAnalysisOrder,
     deleteAnalysisOrder,
     updateAnalysisOrder } = require('../controllers/analysisOrder.controller');
 
-const { buildPdf, 
-        releasePdf } = require('../services/pdf-service.js');
+const { buildPdf } = require('../services/pdf-service.js');
 
 router.get('/pacients', getPacient);
 router.get('/pacients/:id', getPacientById);
@@ -71,6 +70,6 @@ router.post('/analysisOrder', createAnalysisOrder);
 router.delete('/analysisOrder/:id', deleteAnalysisOrder);
 router.put('/analysisOrder', updateAnalysisOrder);
 
-router.get('/releasePdf', buildPdf, releasePdf);
+router.get('/releasePdf', buildPdf);
 
 module.exports = router;

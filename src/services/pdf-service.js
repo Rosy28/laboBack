@@ -2,10 +2,16 @@ const PDFDocument = require('pdfkit'),
         pool = require('../database/keys.js'),
       { queryPU } = require('../database/querys.js');
 
+      
 const buildPdf = async (req, res) => { 
+    const stream = res.writeHead(200, {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': 'attachment;filename=invoice.pdf'
+    });
+
     const doc = new PDFDocument();
-    doc.on('data', req);
-    doc.on('end', res);
+    doc.on('data', (chunk) => stream.write(chunk));
+    doc.on('end', () => stream.end());
 
     const { idpacient, idpedid } = req.body;
 
@@ -14,6 +20,8 @@ const buildPdf = async (req, res) => {
     doc.fontSize(25).text(response);
     doc.end();
 }
+
+
 
 const releasePdf = async (req, res, next) => {
     const stream = res.writeHead(200, {
@@ -27,7 +35,7 @@ const releasePdf = async (req, res, next) => {
     );
 }
 
-module.exports = { buildPdf, releasePdf };
+module.exports = { buildPdf };
 
 
 
